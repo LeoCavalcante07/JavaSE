@@ -94,6 +94,7 @@ public class ProdutoView extends JFrame {
 		btnSalvar.setBounds(398, 105, 89, 23);
 		contentPane.add(btnSalvar);
 		
+		
 		tbProdutos = new JTable();
 		tbProdutos.setBounds(28, 174, 410, 106);
 		contentPane.add(tbProdutos);
