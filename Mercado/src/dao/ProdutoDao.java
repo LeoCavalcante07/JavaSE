@@ -17,13 +17,13 @@ public class ProdutoDao {
 	}
 	
 	public void inserir(Produto produto){
-		String sql = "insert into tbl_produto(descricaoProduto, precoProduto)";
+		String sql = "insert into tbl_produto(descricaoProduto, precoProduto) values(?, ?)";
 		
 		
 		try {
 			stm = con.prepareStatement(sql);
-			stm.setString(0, produto.getDescricaoProduto());
-			stm.setDouble(1, produto.getPrecoProduto());
+			stm.setString(1, produto.getDescricaoProduto());
+			stm.setDouble(2, produto.getPrecoProduto());
 			stm.execute();
 			stm.close();
 			
