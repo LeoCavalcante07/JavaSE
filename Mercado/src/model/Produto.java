@@ -22,6 +22,9 @@ public class Produto {
 	public int getIdProduto() {
 		return idProduto;
 	}
+	public void setIdProduto(int idProduto) {
+		this.idProduto = idProduto;
+	}
 	
 	
 
