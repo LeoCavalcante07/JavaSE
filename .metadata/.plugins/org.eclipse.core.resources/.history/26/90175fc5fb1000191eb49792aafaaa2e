@@ -102,8 +102,6 @@ public class ProdutoView extends JFrame {
 		contentPane.add(tbProdutos);
 		
 
-		String[] titulo = {"ID", "Descrição", "Preço"};
-		
 		produtos = new ArrayList<Produto>();
 		produtos = dao.listarTodos();
 		modeloTabela = new ProdutoTableModel(produtos);

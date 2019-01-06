@@ -31,8 +31,6 @@ public class ProdutoView extends JFrame {
 	public JTable tbProdutos;
 	public ProdutoDao dao;
 	public Produto produto;
-	public ProdutoTableModel modeloTabela;
-	public ArrayList<Produto> produtos;
 
 
 
@@ -102,29 +100,24 @@ public class ProdutoView extends JFrame {
 		contentPane.add(tbProdutos);
 		
 
-		String[] titulo = {"ID", "Descrição", "Preço"};
 		
-		produtos = new ArrayList<Produto>();
-		produtos = dao.listarTodos();
-		modeloTabela = new ProdutoTableModel(produtos);
-		tbProdutos.setModel(modeloTabela);
-		
-		
-//		tbProdutos.setModel(new DefaultTableModel(
-//			new Object[][] {
-//				
-//			},
-//			new String[] {
-//				"ID", "Descri\u00E7\u00E3o", "Pre\u00E7o"
-//			}
-//		) {
-//			boolean[] columnEditables = new boolean[] {
-//				false, false, false
-//			};
-//			public boolean isCellEditable(int row, int column) {
-//				return columnEditables[column];
-//			}
-//		});
+		tbProdutos.setModel(new DefaultTableModel(
+			new Object[][] {
+				{new Integer(1), "impressora", new Double(100.0)},
+				{new Integer(2), "computador", new Double(100.0)},
+				{new Integer(4), "notebook", new Double(90.0)},
+			},
+			new String[] {
+				"ID", "Descri\u00E7\u00E3o", "Pre\u00E7o"
+			}
+		) {
+			boolean[] columnEditables = new boolean[] {
+				false, false, false
+			};
+			public boolean isCellEditable(int row, int column) {
+				return columnEditables[column];
+			}
+		});
 		
 
 	}
