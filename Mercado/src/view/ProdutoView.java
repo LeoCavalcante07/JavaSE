@@ -37,9 +37,10 @@ public class ProdutoView extends JFrame {
 	
 	private JTextField txtFiltro;
 
-
+	public 	JTable tbProdutos;
 
 	public ProdutoView() {
+
 		
 		dao = new ProdutoDao();
 		
@@ -94,7 +95,16 @@ public class ProdutoView extends JFrame {
 				produto.setDescricaoProduto(txtDesc.getText());
 				produto.setPrecoProduto(Double.valueOf(txtPreco.getText()));
 				dao.inserir(produto);
-				criarTabela();
+				Produto p = new Produto();
+				
+				produtos.removeAll(produtos);
+				
+				produtos = dao.listarProdutos();
+				modeloTabela = new ProdutoTableModel(produtos);
+				//modeloTabela.fireTableStructureChanged();
+				tbProdutos.setModel(modeloTabela);
+
+				//criarTabela();
 			}
 		});
 		btnSalvar.setBounds(331, 105, 89, 23);
@@ -137,7 +147,7 @@ public class ProdutoView extends JFrame {
 		
 		
 		
-		JTable tbProdutos = new JTable();
+		tbProdutos = new JTable();
 		tbProdutos.setBounds(30, 153, 408, 144);
 		JScrollPane scrollTabela = new JScrollPane(tbProdutos);
 		scrollTabela.setBounds(30, 153, 408, 144);
@@ -154,6 +164,7 @@ public class ProdutoView extends JFrame {
 	
 	
 	public void criarTabela(){
+		produtos = null;
 		
 		produtos = dao.listarProdutos();
 		
@@ -168,6 +179,7 @@ public class ProdutoView extends JFrame {
 
 				
 		modeloTabela = new ProdutoTableModel(produtos);
+		//modeloTabela.fireTableStructureChanged();
 		tbProdutos.setModel(modeloTabela);
 
 	}

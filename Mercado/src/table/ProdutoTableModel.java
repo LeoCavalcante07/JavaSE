@@ -30,6 +30,7 @@ public class ProdutoTableModel extends AbstractTableModel{
 	@Override
 	public int getRowCount() {
 		return listaProdutos.size();
+		
 	}
 
 	@Override
@@ -62,5 +63,10 @@ public class ProdutoTableModel extends AbstractTableModel{
 			return "";
 		
 	}
+	
+	public void atualizarInsert(){
+		this.fireTableRowsInserted(0, listaProdutos.lastIndexOf(listaProdutos));
+	}
+	
 	
 }
