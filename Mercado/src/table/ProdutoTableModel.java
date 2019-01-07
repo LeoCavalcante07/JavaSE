@@ -17,6 +17,7 @@ public class ProdutoTableModel extends AbstractTableModel{
 	public  ProdutoTableModel(ArrayList<Produto>lista) {
 		listaProdutos = new ArrayList<Produto>(lista);
 		
+		//listaProdutos.removeAll(listaProdutos);
 		
 	}
 	

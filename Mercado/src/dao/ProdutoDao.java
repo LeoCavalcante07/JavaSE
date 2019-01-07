@@ -86,7 +86,7 @@ public class ProdutoDao {
 	}	
 	
 	
-	public ArrayList<Produto> listarTodos(){
+	public ArrayList<Produto> listarProdutos(){
 		String sql = "select * from tbl_produto";
 		
 		
@@ -116,14 +116,16 @@ public class ProdutoDao {
 	
 	
 	
-	public ArrayList<Produto> filtro(String pesquisa){
-		String sql = "select * from tbl_produto where descricaoProduto like '%?%'";
+	
+	
+	public ArrayList<Produto> listarProdutos(String pesquisa){
+		String sql = "select * from tbl_produto where descricaoProduto like '%"+pesquisa+"%'";
 		
 		
 		
 		try{
 			stm = con.prepareStatement(sql);
-			stm.setString(1, pesquisa);
+			//stm.setString(0, pesquisa);
 			rs = stm.executeQuery();
 			while(rs.next()){
 				Produto produto = new Produto();
@@ -144,5 +146,8 @@ public class ProdutoDao {
 		
 		return listaProdutos;
 	} 
+	
+	
+
 	
 }
